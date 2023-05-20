@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { TIMER_TYPES } from './constants';
-import { TimerButton, TimerWrapper } from './styled';
-import TimerContext from './timer-context';
+import { TIMER_TYPES } from './../constants';
+import { TimerButton, TimerWrapper } from './../styled';
+import TimerContext from './../timer-context';
 
 export const Timer = () => {
   const { data, updateData } = useContext(TimerContext);

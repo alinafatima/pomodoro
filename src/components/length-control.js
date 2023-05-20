@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
-import TimerContext from './timer-context';
+import TimerContext from './../timer-context';
 import {
   LengthControlButtonWrapper,
   LengthControlWrapper,
   UpdateTimerLengthButton,
-} from './styled';
+} from '../styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
@@ -28,7 +28,7 @@ export const LengthControl = ({ title, type }) => {
   };
 
   const handleDecrement = () => {
-    if (timerLength !== 0) {
+    if (timerLength !== 1) {
       setTimerLength((prev) => prev - 1);
     }
   };

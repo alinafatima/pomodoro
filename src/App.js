@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import './App.css';
-import { LengthControl } from './length-control';
+import { Timer } from './components/timer';
+import { LengthControl } from './components/length-control';
 import { LengthWrapper } from './styled';
-import { Timer } from './timer';
+
 import TimerContext from './timer-context';
+import Navbar from './components/navbar';
 
 const appData = {
   session: {
@@ -25,6 +27,7 @@ function App() {
   };
   return (
     <TimerContext.Provider value={{ data, updateData }}>
+      <Navbar />
       <div className="App">
         <LengthWrapper>
           <LengthControl title="Session Length" type="session" />
