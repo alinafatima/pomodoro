@@ -53,10 +53,11 @@ export const DropdownMenu = styled.ul`
   z-index: 1;
   margin-top: 1vh;
   padding: 0;
+  border: 1px solid black;
 `;
 
 export const DropdownMenuListItem = styled.li`
-  border: 1px solid black;
+  border: 0.5px solid black;
   padding: 0.5vw;
 `;
 
