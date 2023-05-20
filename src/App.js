@@ -14,6 +14,7 @@ const appData = {
     minutes: 5,
     seconds: 0,
   },
+  isRunning: false,
 };
 
 function App() {

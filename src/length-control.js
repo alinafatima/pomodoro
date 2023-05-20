@@ -37,11 +37,17 @@ export const LengthControl = ({ title, type }) => {
     <LengthControlWrapper>
       {title}
       <LengthControlButtonWrapper>
-        <UpdateTimerLengthButton onClick={handleIncrement}>
+        <UpdateTimerLengthButton
+          onClick={handleIncrement}
+          disabled={data?.isRunning}
+        >
           <FontAwesomeIcon icon={faArrowUp} />
         </UpdateTimerLengthButton>
         {timerLength}
-        <UpdateTimerLengthButton onClick={handleDecrement}>
+        <UpdateTimerLengthButton
+          onClick={handleDecrement}
+          disabled={data?.isRunning}
+        >
           <FontAwesomeIcon icon={faArrowDown} />
         </UpdateTimerLengthButton>
       </LengthControlButtonWrapper>

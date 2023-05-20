@@ -4,7 +4,7 @@ import { TimerButton, TimerWrapper } from './styled';
 import TimerContext from './timer-context';
 
 export const Timer = () => {
-  const { data } = useContext(TimerContext);
+  const { data, updateData } = useContext(TimerContext);
   const [timerType, setTimerType] = useState('session');
   const [initialMinutes, setInitialMinutes] = useState(
     data[timerType]?.minutes
@@ -27,6 +27,12 @@ export const Timer = () => {
       setSeconds(data[timerType]?.seconds);
     }
   }, [data]);
+
+  useEffect(() => {
+    const newData = { ...data };
+    newData['isRunning'] = isRunning;
+    updateData(newData);
+  }, [isRunning]);
 
   const updateMinutesAndSeconds = (timerType) => {
     setInitialMinutes(data[timerType]?.minutes);
