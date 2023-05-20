@@ -1,24 +1,37 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import { LengthControl } from './length-control';
+import { LengthWrapper } from './styled';
+import { Timer } from './timer';
+import TimerContext from './timer-context';
+
+const appData = {
+  session: {
+    minutes: 10,
+    seconds: 0,
+  },
+  break: {
+    minutes: 5,
+    seconds: 0,
+  },
+};
 
 function App() {
+  const [data, setData] = useState(appData);
+
+  const updateData = (newData) => {
+    setData(newData);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TimerContext.Provider value={{ data, updateData }}>
+      <div className="App">
+        <LengthWrapper>
+          <LengthControl title="Session Length" type="session" />
+          <LengthControl title="Break Length" type="break" />
+        </LengthWrapper>
+        <Timer />
+      </div>
+    </TimerContext.Provider>
   );
 }
 
