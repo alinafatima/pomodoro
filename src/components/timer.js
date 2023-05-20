@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { TIMER_TYPES } from './../constants';
 import { TimerButton, TimerWrapper } from './../styled';
 import TimerContext from './../timer-context';
 
 export const Timer = () => {
   const { data, updateData } = useContext(TimerContext);
+  const { t } = useTranslation();
   const [timerType, setTimerType] = useState('session');
   const [initialMinutes, setInitialMinutes] = useState(
     data[timerType]?.minutes
@@ -96,9 +98,13 @@ export const Timer = () => {
         {formatMinutes(minutes)}:{formatSeconds(seconds)}
       </div>
       <div>
-        <TimerButton onClick={() => setIsRunning(true)}>Start</TimerButton>
-        <TimerButton onClick={() => setIsRunning(false)}>Pause</TimerButton>
-        <TimerButton onClick={onReset}>Reset</TimerButton>
+        <TimerButton onClick={() => setIsRunning(true)}>
+          {t('start')}
+        </TimerButton>
+        <TimerButton onClick={() => setIsRunning(false)}>
+          {t('pause')}
+        </TimerButton>
+        <TimerButton onClick={onReset}> {t('reset')}</TimerButton>
       </div>
     </TimerWrapper>
   );
