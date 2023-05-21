@@ -1,3 +1,5 @@
+import { THEME_OPTIONS } from '../constants';
+
 export const appData = {
   session: {
     minutes: 10,
@@ -8,4 +10,5 @@ export const appData = {
     seconds: 0,
   },
   isRunning: false,
+  currentTheme: THEME_OPTIONS[0],
 };

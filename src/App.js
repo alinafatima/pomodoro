@@ -8,7 +8,7 @@ import TimerContext from './timer-context';
 import Navbar from './components/navbar';
 import { appData } from './context/data';
 import { ThemeProvider } from 'styled-components';
-import { theme } from './themes/theme';
+import { themes } from './themes/theme';
 
 function App() {
   const [data, setData] = useState(appData);
@@ -17,7 +17,9 @@ function App() {
     setData(newData);
   };
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider
+      theme={themes.find((theme) => theme.id === data.currentTheme.value)}
+    >
       <TimerContext.Provider value={{ data, updateData }}>
         <AppWrapper>
           <Navbar />

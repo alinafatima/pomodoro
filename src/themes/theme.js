@@ -1,7 +1,50 @@
-export const theme = {
-  primary: '#E6FFFD',
-  secondary: '#AEE2FF',
-  tertiary: '#B799FF',
-  quaternary: '#ACBCFF',
-  quinary: '#8165A6',
-};
+export const themes = [
+  {
+    id: 'theme1',
+    primary: '#DDE6ED',
+    secondary: '#000000',
+    tertiary: '#27374D',
+    quaternary: '#C6DCE4',
+    quinary: '#FFFFFF',
+  },
+  {
+    id: 'theme2',
+    primary: '#E6FFFD',
+    secondary: '#AEE2FF',
+    tertiary: '#B799FF',
+    quaternary: '#ACBCFF',
+    quinary: '#00000',
+  },
+  {
+    id: 'theme3',
+    primary: '#F2FFE9',
+    secondary: '#557C55',
+    tertiary: '#DB6B97',
+    quaternary: '#A6CF98',
+    quinary: '#FFFFFF',
+  },
+  {
+    id: 'theme4',
+    primary: '#FFA3FD',
+    secondary: '#865DFF',
+    tertiary: '#191825',
+    quaternary: '#E384FF',
+    quinary: '#FFFFFF',
+  },
+  {
+    id: 'theme5',
+    primary: '#F9F5E7',
+    secondary: '#A7727D',
+    tertiary: '#A7727D',
+    quaternary: '#F8EAD8',
+    quinary: '#FFFFFF',
+  },
+  {
+    id: 'theme6',
+    primary: '#DDE6ED',
+    secondary: '#526D82',
+    tertiary: '#27374D',
+    quaternary: '#9DB2BF',
+    quinary: '#FFFFFF',
+  },
+];

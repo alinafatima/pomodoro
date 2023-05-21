@@ -57,6 +57,7 @@ export const TimerWrapper = styled.div`
 
 export const TimerButton = styled.button`
   background-color: ${(props) => props.theme.secondary};
+  color: ${(props) => props.theme.quinary};
   margin: 1vh 2vw;
   border: none;
   border-radius: 5px;
@@ -67,6 +68,7 @@ export const TimerButton = styled.button`
 
 export const NavBarWrapper = styled.nav`
   background-color: ${(props) => props.theme.secondary};
+  color: ${(props) => props.theme.quinary};
 `;
 
 export const NavList = styled.ul`

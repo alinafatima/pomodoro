@@ -11,8 +11,8 @@ import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { useTheme } from 'styled-components';
 
 export const LengthControl = ({ title, type }) => {
-  const { data, updateData } = useContext(TimerContext);
   const theme = useTheme();
+  const { data, updateData } = useContext(TimerContext);
 
   const [timerLength, setTimerLength] = useState(data[type]?.minutes);
 
@@ -44,14 +44,14 @@ export const LengthControl = ({ title, type }) => {
           onClick={handleIncrement}
           disabled={data?.isRunning}
         >
-          <FontAwesomeIcon icon={faArrowUp} size="2x" />
+          <FontAwesomeIcon icon={faArrowUp} size="2x" color={theme.quinary} />
         </UpdateTimerLengthButton>
         <UpdateTimerLengthLabel>{timerLength}</UpdateTimerLengthLabel>
         <UpdateTimerLengthButton
           onClick={handleDecrement}
           disabled={data?.isRunning}
         >
-          <FontAwesomeIcon icon={faArrowDown} size="2x" />
+          <FontAwesomeIcon icon={faArrowDown} size="2x" color={theme.quinary} />
         </UpdateTimerLengthButton>
       </LengthControlButtonWrapper>
     </LengthControlWrapper>

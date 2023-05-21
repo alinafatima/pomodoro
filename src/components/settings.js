@@ -8,7 +8,7 @@ export const Settings = ({ isOpen, closeModal }) => {
     <Modal isOpen={isOpen} onClose={closeModal}>
       <section>
         <h3>Theme</h3>
-        <Select options={THEME_OPTIONS} />
+        <Select options={THEME_OPTIONS} field={'currentTheme'} />
       </section>
       <section>
         <h3>Alarm Sound</h3>
