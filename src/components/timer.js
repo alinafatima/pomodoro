@@ -1,9 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { TIMER_TYPES } from './../constants';
 import {
   CountdownWrapper,
   DigitsWrapper,
+  ProgressCircle,
   TimerButton,
   TimerWrapper,
 } from './../styled';
@@ -23,9 +24,19 @@ export const Timer = () => {
   const [seconds, setSeconds] = useState(initialSeconds);
   const [isRunning, setIsRunning] = useState(false);
   const [isStartButtonPressed, setIsStartButtonPressed] = useState(false);
+  const [totalSecondsPassed, setTotalSecondsPassed] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   const alarmSound = new Audio(
     'https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav'
+  );
+
+  const timerData = useMemo(
+    () => ({
+      session: data.session,
+      break: data.break,
+    }),
+    [data]
   );
 
   useEffect(() => {
@@ -35,7 +46,7 @@ export const Timer = () => {
       setMinutes(data[timerType]?.minutes);
       setSeconds(data[timerType]?.seconds);
     }
-  }, [data.session, data.break]);
+  }, [timerData]);
 
   useEffect(() => {
     const newData = { ...data };
@@ -48,6 +59,8 @@ export const Timer = () => {
     setInitialSeconds(data[timerType]?.seconds);
     setMinutes(data[timerType]?.minutes);
     setSeconds(data[timerType]?.seconds);
+    setTotalSecondsPassed(0);
+    setProgress(0);
   };
 
   const updateTimerType = () => {
@@ -69,8 +82,10 @@ export const Timer = () => {
         if (minutes || seconds) {
           if (seconds) {
             setSeconds((prev) => prev - 1);
+            setTotalSecondsPassed((prev) => prev + 1);
           } else {
             setSeconds(59);
+            setTotalSecondsPassed((prev) => prev + 1);
             setMinutes((prev) => prev - 1);
           }
         } else {
@@ -98,6 +113,8 @@ export const Timer = () => {
     setIsRunning(false);
     setMinutes(initialMinutes);
     setSeconds(initialSeconds);
+    setTotalSecondsPassed(0);
+    setProgress(0);
   };
 
   const formatMinutes = (minutes) => {
@@ -110,14 +127,20 @@ export const Timer = () => {
       : seconds.toString().padStart(2, '0');
   };
 
+  useEffect(() => {
+    setProgress(Math.ceil((totalSecondsPassed / (initialMinutes * 60)) * 100));
+  }, [totalSecondsPassed]);
+
   return (
     <TimerWrapper>
-      <CountdownWrapper>
-        <div>{TIMER_TYPES[timerType].label}</div>
-        <DigitsWrapper>
-          {formatMinutes(minutes)}:{formatSeconds(seconds)}
-        </DigitsWrapper>
-      </CountdownWrapper>
+      <ProgressCircle className="animate" p={progress}>
+        <CountdownWrapper>
+          <div>{TIMER_TYPES[timerType].label}</div>
+          <DigitsWrapper>
+            {formatMinutes(minutes)}:{formatSeconds(seconds)}
+          </DigitsWrapper>
+        </CountdownWrapper>
+      </ProgressCircle>
       <div>
         <TimerButton onClick={onStart}>{t('start')}</TimerButton>
         <TimerButton onClick={onPauseOrResume}>

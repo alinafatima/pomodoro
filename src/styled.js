@@ -45,6 +45,7 @@ export const TimerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 `;
 
 export const TimerButton = styled.button`
@@ -113,18 +114,67 @@ export const CloseIconWrapper = styled.span`
 `;
 
 export const CountdownWrapper = styled.div`
-  border: 1px solid ${(props) => props.theme.tertiary};
+  border: 1px solid ${(props) => props.theme.quaternary};
+  background-color: ${(props) => props.theme.quaternary};
   border-radius: 50%;
-  height: 40vh;
-  width: 25vw;
+  height: 43vh;
+  width: 24vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  align-self: center;
   flex-direction: column;
-  margin-bottom: 3vh;
+  z-index: 2;
 `;
 
 export const DigitsWrapper = styled.div`
   font-size: 4rem;
+`;
+
+export const ProgressCircle = styled.div`
+  --p: ${(props) => props.p || 0};
+  --b: 20px;
+  --c: ${(props) => props.theme.tertiary};
+  --w: 27vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: var(--w);
+  aspect-ratio: 1;
+  position: relative;
+  display: inline-grid;
+  margin-bottom: 3vh;
+  place-content: center;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  &::before {
+    inset: 0;
+    background: radial-gradient(farthest-side, var(--c) 98%, #0000) top/var(--b)
+        var(--b) no-repeat,
+      conic-gradient(var(--c) calc(var(--p) * 1%), #0000 0);
+    -webkit-mask: radial-gradient(
+      farthest-side,
+      #0000 calc(99% - var(--b)),
+      #000 calc(100% - var(--b))
+    );
+    mask: radial-gradient(
+      farthest-side,
+      #0000 calc(99% - var(--b)),
+      #000 calc(100% - var(--b))
+    );
+  }
+
+  &::after {
+    inset: calc(50% - var(--b) / 2);
+    background: var(--c);
+    transform: rotate(calc(var(--p) * 3.6deg))
+      translateY(calc(50% - var(--w) / 2));
+  }
 `;
