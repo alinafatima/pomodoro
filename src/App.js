@@ -2,22 +2,13 @@ import { useState } from 'react';
 import './App.css';
 import { Timer } from './components/timer';
 import { LengthControl } from './components/length-control';
-import { LengthWrapper } from './styled';
+import { AppWrapper, LengthWrapper, MainWrapper } from './styled';
 
 import TimerContext from './timer-context';
 import Navbar from './components/navbar';
-
-const appData = {
-  session: {
-    minutes: 10,
-    seconds: 0,
-  },
-  break: {
-    minutes: 5,
-    seconds: 0,
-  },
-  isRunning: false,
-};
+import { appData } from './context/data';
+import { ThemeProvider } from 'styled-components';
+import { theme } from './themes/theme';
 
 function App() {
   const [data, setData] = useState(appData);
@@ -26,16 +17,20 @@ function App() {
     setData(newData);
   };
   return (
-    <TimerContext.Provider value={{ data, updateData }}>
-      <Navbar />
-      <div className="App">
-        <LengthWrapper>
-          <LengthControl title="Session Length" type="session" />
-          <LengthControl title="Break Length" type="break" />
-        </LengthWrapper>
-        <Timer />
-      </div>
-    </TimerContext.Provider>
+    <ThemeProvider theme={theme}>
+      <TimerContext.Provider value={{ data, updateData }}>
+        <AppWrapper>
+          <Navbar />
+          <MainWrapper>
+            <LengthWrapper>
+              <LengthControl title="Session Length" type="session" />
+              <LengthControl title="Break Length" type="break" />
+            </LengthWrapper>
+            <Timer />
+          </MainWrapper>
+        </AppWrapper>
+      </TimerContext.Provider>
+    </ThemeProvider>
   );
 }
 

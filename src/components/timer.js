@@ -1,7 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { TIMER_TYPES } from './../constants';
-import { TimerButton, TimerWrapper } from './../styled';
+import {
+  CountdownWrapper,
+  DigitsWrapper,
+  TimerButton,
+  TimerWrapper,
+} from './../styled';
 import TimerContext from './../timer-context';
 
 export const Timer = () => {
@@ -17,6 +22,8 @@ export const Timer = () => {
   const [minutes, setMinutes] = useState(initialMinutes);
   const [seconds, setSeconds] = useState(initialSeconds);
   const [isRunning, setIsRunning] = useState(false);
+  const [isStartButtonPressed, setIsStartButtonPressed] = useState(false);
+
   const alarmSound = new Audio(
     'https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav'
   );
@@ -75,7 +82,19 @@ export const Timer = () => {
     return () => clearInterval(secondsTimer);
   }, [seconds, isRunning, minutes]);
 
+  const onStart = () => {
+    setIsStartButtonPressed(true);
+    setIsRunning(true);
+  };
+  const onPauseOrResume = () => {
+    if (isStartButtonPressed && !isRunning) {
+      setIsRunning(true);
+    } else {
+      setIsRunning(false);
+    }
+  };
   const onReset = () => {
+    setIsStartButtonPressed(false);
     setIsRunning(false);
     setMinutes(initialMinutes);
     setSeconds(initialSeconds);
@@ -93,16 +112,16 @@ export const Timer = () => {
 
   return (
     <TimerWrapper>
-      <div>{TIMER_TYPES[timerType].label}</div>
+      <CountdownWrapper>
+        <div>{TIMER_TYPES[timerType].label}</div>
+        <DigitsWrapper>
+          {formatMinutes(minutes)}:{formatSeconds(seconds)}
+        </DigitsWrapper>
+      </CountdownWrapper>
       <div>
-        {formatMinutes(minutes)}:{formatSeconds(seconds)}
-      </div>
-      <div>
-        <TimerButton onClick={() => setIsRunning(true)}>
-          {t('start')}
-        </TimerButton>
-        <TimerButton onClick={() => setIsRunning(false)}>
-          {t('pause')}
+        <TimerButton onClick={onStart}>{t('start')}</TimerButton>
+        <TimerButton onClick={onPauseOrResume}>
+          {isStartButtonPressed && !isRunning ? t('resume') : t('pause')}
         </TimerButton>
         <TimerButton onClick={onReset}> {t('reset')}</TimerButton>
       </div>

@@ -1,5 +1,22 @@
 import styled from 'styled-components';
 
+export const AppWrapper = styled.div`
+  text-align: center;
+  height: 100vh;
+  background-color: ${(props) => props.theme.primary};
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+`;
+
+export const MainWrapper = styled.div`
+  background-color: ${(props) => props.theme.primary};
+`;
+
 export const LengthWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -33,13 +50,19 @@ export const TimerWrapper = styled.div`
 export const TimerButton = styled.button`
   margin: 1vh 2vw;
   border: none;
+  font-size: 1rem;
+`;
+
+export const NavBarWrapper = styled.nav`
+  background-color: ${(props) => props.theme.secondary};
 `;
 
 export const NavList = styled.ul`
   display: flex;
   justify-content: flex-end;
   list-style: none;
-  margin-right: 3vw;
+  padding-right: 3vw;
+  margin: 0;
 `;
 
 export const NavListItem = styled.li`
@@ -87,4 +110,21 @@ export const CloseIconWrapper = styled.span`
   top: 10px;
   right: 10px;
   cursor: pointer;
+`;
+
+export const CountdownWrapper = styled.div`
+  border: 1px solid ${(props) => props.theme.tertiary};
+  border-radius: 50%;
+  height: 40vh;
+  width: 25vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  flex-direction: column;
+  margin-bottom: 3vh;
+`;
+
+export const DigitsWrapper = styled.div`
+  font-size: 4rem;
 `;

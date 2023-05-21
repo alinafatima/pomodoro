@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavList, NavListItem } from '../styled';
+import { NavBarWrapper, NavList, NavListItem } from '../styled';
 import { Info } from './info';
 import { LanguageDropdown } from './language-dropdown';
 import { Settings } from './settings';
@@ -17,7 +17,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav>
+    <NavBarWrapper>
       <NavList>
         <NavListItem onClick={toggleInfoModal}>Info</NavListItem>
         <NavListItem onClick={toggleSettingsModal}>Settings</NavListItem>
@@ -28,7 +28,7 @@ const Navbar = () => {
       </NavList>
       <Info isOpen={openInfo} closeModal={toggleInfoModal} />
       <Settings isOpen={openSettings} closeModal={toggleSettingsModal} />
-    </nav>
+    </NavBarWrapper>
   );
 };
 
