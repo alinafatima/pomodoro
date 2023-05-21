@@ -75,6 +75,16 @@ export const ModalWrapper = styled.div`
 
 export const ModalContentWrapper = styled.div`
   background-color: #fff;
-  padding: 20px;
+  padding: 2vw;
   border-radius: 5px;
+  margin: 5vw;
+  width: 70vw;
+  position: relative;
+`;
+
+export const CloseIconWrapper = styled.span`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
 `;

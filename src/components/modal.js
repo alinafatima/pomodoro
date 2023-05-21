@@ -1,5 +1,5 @@
 import React from 'react';
-import { ModalContentWrapper, ModalWrapper } from '../styled';
+import { CloseIconWrapper, ModalContentWrapper, ModalWrapper } from '../styled';
 
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
@@ -7,8 +7,8 @@ const Modal = ({ isOpen, onClose, children }) => {
   return (
     <ModalWrapper>
       <ModalContentWrapper>
+        <CloseIconWrapper onClick={onClose}>X</CloseIconWrapper>
         {children}
-        <button onClick={onClose}>Close</button>
       </ModalContentWrapper>
     </ModalWrapper>
   );
