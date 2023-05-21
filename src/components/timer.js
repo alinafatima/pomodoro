@@ -6,6 +6,7 @@ import {
   DigitsWrapper,
   ProgressCircle,
   TimerButton,
+  TimerLabelWrapper,
   TimerWrapper,
 } from './../styled';
 import TimerContext from './../timer-context';
@@ -135,7 +136,7 @@ export const Timer = () => {
     <TimerWrapper>
       <ProgressCircle className="animate" p={progress}>
         <CountdownWrapper>
-          <div>{TIMER_TYPES[timerType].label}</div>
+          <TimerLabelWrapper>{TIMER_TYPES[timerType].label}</TimerLabelWrapper>
           <DigitsWrapper>
             {formatMinutes(minutes)}:{formatSeconds(seconds)}
           </DigitsWrapper>

@@ -26,7 +26,8 @@ export const LengthWrapper = styled.div`
 export const LengthControlWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 5vw;
+  margin: 6vh 5vw;
+  font-size: 1.5rem;
 `;
 
 export const LengthControlButtonWrapper = styled.div`
@@ -36,9 +37,15 @@ export const LengthControlButtonWrapper = styled.div`
   margin-top: 2vh;
 `;
 
+export const UpdateTimerLengthLabel = styled.div`
+  margin-top: 1vh;
+`;
+
 export const UpdateTimerLengthButton = styled.button`
   border: none;
+  background-color: ${(props) => props.theme.secondary};
   margin: 0vh 2vw;
+  padding: 1vh 1vw;
 `;
 
 export const TimerWrapper = styled.div`
@@ -49,9 +56,13 @@ export const TimerWrapper = styled.div`
 `;
 
 export const TimerButton = styled.button`
+  background-color: ${(props) => props.theme.secondary};
   margin: 1vh 2vw;
   border: none;
-  font-size: 1rem;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  width: 10vw;
+  padding: 1vh;
 `;
 
 export const NavBarWrapper = styled.nav`
@@ -95,6 +106,7 @@ export const ModalWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 3;
 `;
 
 export const ModalContentWrapper = styled.div`
@@ -104,6 +116,7 @@ export const ModalContentWrapper = styled.div`
   margin: 5vw;
   width: 70vw;
   position: relative;
+  z-index: 3;
 `;
 
 export const CloseIconWrapper = styled.span`
@@ -126,8 +139,12 @@ export const CountdownWrapper = styled.div`
   z-index: 2;
 `;
 
+export const TimerLabelWrapper = styled.div`
+  font-size: 2rem;
+`;
+
 export const DigitsWrapper = styled.div`
-  font-size: 4rem;
+  font-size: 5rem;
 `;
 
 export const ProgressCircle = styled.div`
@@ -144,7 +161,7 @@ export const ProgressCircle = styled.div`
   aspect-ratio: 1;
   position: relative;
   display: inline-grid;
-  margin-bottom: 3vh;
+  margin-bottom: 5vh;
   place-content: center;
 
   &::before,
