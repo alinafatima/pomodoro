@@ -43,6 +43,7 @@ export const UpdateTimerLengthLabel = styled.div`
 
 export const UpdateTimerLengthButton = styled.button`
   border: none;
+  border-radius: 5px;
   background-color: ${(props) => props.theme.secondary};
   margin: 0vh 2vw;
   padding: 1vh 1vw;
