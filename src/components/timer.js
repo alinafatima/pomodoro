@@ -28,7 +28,7 @@ export const Timer = () => {
       setMinutes(data[timerType]?.minutes);
       setSeconds(data[timerType]?.seconds);
     }
-  }, [data]);
+  }, [data.session, data.break]);
 
   useEffect(() => {
     const newData = { ...data };
