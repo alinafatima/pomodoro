@@ -26,11 +26,19 @@ export const THEME_OPTIONS = [
   },
   {
     value: 'theme5',
-    label: 'Theme 5',
+    label: 'Sea',
   },
   {
     value: 'theme6',
-    label: 'Theme 6',
+    label: 'Sunset',
+  },
+  {
+    value: 'theme7',
+    label: 'Sunset',
+  },
+  {
+    value: 'theme8',
+    label: 'Autumn',
   },
 ];
 

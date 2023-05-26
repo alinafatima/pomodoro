@@ -5,8 +5,8 @@ import {
   LengthControlWrapper,
   UpdateTimerLengthButton,
   UpdateTimerLengthLabel,
+  HoverableFontAwesomeIcon,
 } from '../styled';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { useTheme } from 'styled-components';
 
@@ -44,14 +44,22 @@ export const LengthControl = ({ title, type }) => {
           onClick={handleIncrement}
           disabled={data?.isRunning}
         >
-          <FontAwesomeIcon icon={faArrowUp} size="2x" color={theme.quinary} />
+          <HoverableFontAwesomeIcon
+            icon={faArrowUp}
+            size="2x"
+            color={theme.quinary}
+          />
         </UpdateTimerLengthButton>
         <UpdateTimerLengthLabel>{timerLength}</UpdateTimerLengthLabel>
         <UpdateTimerLengthButton
           onClick={handleDecrement}
           disabled={data?.isRunning}
         >
-          <FontAwesomeIcon icon={faArrowDown} size="2x" color={theme.quinary} />
+          <HoverableFontAwesomeIcon
+            icon={faArrowDown}
+            size="2x"
+            color={theme.quinary}
+          />
         </UpdateTimerLengthButton>
       </LengthControlButtonWrapper>
     </LengthControlWrapper>

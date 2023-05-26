@@ -10,5 +10,5 @@ export const appData = {
     seconds: 0,
   },
   isRunning: false,
-  currentTheme: THEME_OPTIONS[0],
+  currentTheme: THEME_OPTIONS[6],
 };

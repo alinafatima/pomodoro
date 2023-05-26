@@ -1,9 +1,13 @@
-import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import styled, { css } from 'styled-components';
 
 export const AppWrapper = styled.div`
   text-align: center;
   height: 100vh;
-  background-color: ${(props) => props.theme.primary};
+  background-color: ${(props) =>
+    props.backgroundImage ? 'transparent' : props.theme.primary};
+  background-image: ${(props) =>
+    props.backgroundImage ? `url(${props.backgroundImage})` : 'none'};
   position: absolute;
   top: 0;
   right: 0;
@@ -11,16 +15,26 @@ export const AppWrapper = styled.div`
   left: 0;
   margin: 0;
   padding: 0;
+  ${(props) =>
+    props.backgroundImage
+      ? css`
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+        `
+      : css`
+          background-image: none;
+        `};
 `;
 
-export const MainWrapper = styled.div`
-  background-color: ${(props) => props.theme.primary};
-`;
+export const MainWrapper = styled.div``;
 
 export const LengthWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  position: relative;
+  z-index: 2;
 `;
 
 export const LengthControlWrapper = styled.div`
@@ -28,6 +42,7 @@ export const LengthControlWrapper = styled.div`
   flex-direction: column;
   margin: 6vh 5vw;
   font-size: 1.5rem;
+  color: ${(props) => props.theme.quinary};
 `;
 
 export const LengthControlButtonWrapper = styled.div`
@@ -44,9 +59,17 @@ export const UpdateTimerLengthLabel = styled.div`
 export const UpdateTimerLengthButton = styled.button`
   border: none;
   border-radius: 5px;
-  background-color: ${(props) => props.theme.secondary};
+  background-color: ${(props) => props.theme.quaternary};
   margin: 0vh 2vw;
   padding: 1vh 1vw;
+`;
+
+export const HoverableFontAwesomeIcon = styled(FontAwesomeIcon)`
+  transition: color 0.3s;
+
+  &:hover {
+    color: ${(props) => props.theme.secondary};
+  }
 `;
 
 export const TimerWrapper = styled.div`
@@ -54,21 +77,30 @@ export const TimerWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 2;
 `;
 
 export const TimerButton = styled.button`
-  background-color: ${(props) => props.theme.secondary};
-  color: ${(props) => props.theme.quinary};
+  background-color: transparent;
+  color: ${(props) => props.theme.primary};
   margin: 1vh 2vw;
-  border: none;
-  border-radius: 5px;
+  border: 1px solid ${(props) => props.theme.primary};
+  border-radius: 20px;
   font-size: 1.2rem;
   width: 10vw;
   padding: 1vh;
+  &:hover {
+    background-color: white;
+    color: black;
+    mix-blend-mode: screen;
+  }
 `;
 
 export const NavBarWrapper = styled.nav`
-  background-color: ${(props) => props.theme.secondary};
+  position: relative;
+  z-index: 3;
+  background-color: 'transparent';
   color: ${(props) => props.theme.quinary};
 `;
 
@@ -88,7 +120,7 @@ export const DropdownMenu = styled.ul`
   position: absolute;
   background-color: #f9f9f9;
   list-style: none;
-  z-index: 1;
+  z-index: 5;
   margin-top: 1vh;
   padding: 0;
   border: 1px solid black;
@@ -109,17 +141,18 @@ export const ModalWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 3;
+  z-index: 99;
 `;
 
 export const ModalContentWrapper = styled.div`
-  background-color: #fff;
+  background-color: ${(props) => props.theme.primary};
+  color: ${(props) => props.theme.senary};
   padding: 2vw;
   border-radius: 5px;
   margin: 5vw;
   width: 70vw;
   position: relative;
-  z-index: 3;
+  z-index: 5;
 `;
 
 export const CloseIconWrapper = styled.span`
@@ -127,11 +160,11 @@ export const CloseIconWrapper = styled.span`
   top: 10px;
   right: 10px;
   cursor: pointer;
+  color: ${(props) => props.theme.senary};
 `;
 
 export const CountdownWrapper = styled.div`
-  border: 1px solid ${(props) => props.theme.quaternary};
-  background-color: ${(props) => props.theme.quaternary};
+  background-color: transparent;
   border-radius: 50%;
   height: 43vh;
   width: 24vw;
@@ -139,15 +172,16 @@ export const CountdownWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  z-index: 2;
 `;
 
 export const TimerLabelWrapper = styled.div`
-  font-size: 2rem;
+  color: ${(props) => props.theme.quinary};
+  font-size: 3rem;
 `;
 
 export const DigitsWrapper = styled.div`
-  font-size: 5rem;
+  color: ${(props) => props.theme.quinary};
+  font-size: 6rem;
 `;
 
 export const ProgressCircle = styled.div`
@@ -159,6 +193,7 @@ export const ProgressCircle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 
   width: var(--w);
   aspect-ratio: 1;
@@ -197,4 +232,14 @@ export const ProgressCircle = styled.div`
     transform: rotate(calc(var(--p) * 3.6deg))
       translateY(calc(50% - var(--w) / 2));
   }
+`;
+
+export const OverlayWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1;
 `;
