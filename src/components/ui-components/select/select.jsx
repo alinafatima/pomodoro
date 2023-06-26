@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
-import TimerContext from '../../timer-context';
+import TimerContext from './../../../timer-context';
+import { SelectWrapper, StyledSelect } from './styled';
 
 const Select = ({ options, field }) => {
   const [selectedOption, setSelectedOption] = useState('');
@@ -17,15 +18,15 @@ const Select = ({ options, field }) => {
   };
 
   return (
-    <div>
-      <select value={selectedOption} onChange={handleSelectChange}>
+    <SelectWrapper>
+      <StyledSelect value={selectedOption} onChange={handleSelectChange}>
         {options?.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
           </option>
         ))}
-      </select>
-    </div>
+      </StyledSelect>
+    </SelectWrapper>
   );
 };
 

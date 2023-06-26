@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useMemo, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { TIMER_TYPES } from './../constants';
 import {
@@ -12,7 +12,7 @@ import {
 import TimerContext from './../timer-context';
 
 export const Timer = () => {
-  const { data, updateData } = useContext(TimerContext);
+  const { data , updateData } = useContext(TimerContext);
   const { t } = useTranslation();
   const [timerType, setTimerType] = useState('session');
   const [initialMinutes, setInitialMinutes] = useState(
@@ -27,18 +27,18 @@ export const Timer = () => {
   const [isStartButtonPressed, setIsStartButtonPressed] = useState(false);
   const [totalSecondsPassed, setTotalSecondsPassed] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [session, setSession] = useState({});
+  const [breakTime,setBreakTime] = useState({});
 
   const alarmSound = new Audio(
     'https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav'
   );
 
-  const timerData = useMemo(
-    () => ({
-      session: data.session,
-      break: data.break,
-    }),
-    [data]
-  );
+    useEffect(()=>{
+      console.log(data, "herrrreee");
+      setSession(data?.session);
+      setBreakTime(data?.break);
+    },[data])
 
   useEffect(() => {
     setInitialMinutes(data[timerType]?.minutes);
@@ -47,7 +47,7 @@ export const Timer = () => {
       setMinutes(data[timerType]?.minutes);
       setSeconds(data[timerType]?.seconds);
     }
-  }, [timerData]);
+  }, [session?.minutes, breakTime?.minutes])
 
   useEffect(() => {
     const newData = { ...data };
@@ -103,6 +103,7 @@ export const Timer = () => {
     setIsRunning(true);
   };
   const onPauseOrResume = () => {
+    console.log(isStartButtonPressed && !isRunning);
     if (isStartButtonPressed && !isRunning) {
       setIsRunning(true);
     } else {

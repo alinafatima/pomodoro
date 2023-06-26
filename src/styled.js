@@ -66,6 +66,8 @@ export const UpdateTimerLengthButton = styled.button`
 
 export const HoverableFontAwesomeIcon = styled(FontAwesomeIcon)`
   transition: color 0.3s;
+  width: 25px; 
+  height: 25px; 
 
   &:hover {
     color: ${(props) => props.theme.secondary};
@@ -118,7 +120,7 @@ export const NavListItem = styled.li`
 
 export const DropdownMenu = styled.ul`
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: white;
   list-style: none;
   z-index: 5;
   margin-top: 1vh;
@@ -128,6 +130,7 @@ export const DropdownMenu = styled.ul`
 
 export const DropdownMenuListItem = styled.li`
   border: 0.5px solid black;
+  color: black;
   padding: 0.5vw;
 `;
 
@@ -150,7 +153,6 @@ export const ModalContentWrapper = styled.div`
   padding: 2vw;
   border-radius: 5px;
   margin: 5vw;
-  width: 70vw;
   position: relative;
   z-index: 5;
 `;
@@ -242,4 +244,9 @@ export const OverlayWrapper = styled.div`
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 1;
+`;
+
+export const SectionWrapper = styled.section`
+  text-align: left;
+  margin: 3vh 1vw;
 `;

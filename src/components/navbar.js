@@ -3,6 +3,12 @@ import { NavBarWrapper, NavList, NavListItem } from '../styled';
 import { Info } from './info';
 import { LanguageDropdown } from './language-dropdown';
 import { Settings } from './settings';
+import { HoverableFontAwesomeIcon } from './../styled';
+import {
+  faGlobe,
+  faGear,
+  faCircleInfo,
+} from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
   const [openLanguageDropdown, setOpenLanguageDropdown] = useState(false);
@@ -19,10 +25,19 @@ const Navbar = () => {
   return (
     <NavBarWrapper>
       <NavList>
-        <NavListItem onClick={toggleInfoModal}>Info</NavListItem>
-        <NavListItem onClick={toggleSettingsModal}>Settings</NavListItem>
+        <NavListItem onClick={toggleInfoModal}>
+          <HoverableFontAwesomeIcon
+            icon={faCircleInfo}
+            color={'white'}
+            height={70}
+            width = {70}
+          />
+        </NavListItem>
+        <NavListItem onClick={toggleSettingsModal}>
+          <HoverableFontAwesomeIcon icon={faGear} color={'white'}  />
+        </NavListItem>
         <NavListItem onClick={toggleLanguageDropdown}>
-          Language
+          <HoverableFontAwesomeIcon icon={faGlobe} color={'white'} />
           {openLanguageDropdown && <LanguageDropdown />}
         </NavListItem>
       </NavList>

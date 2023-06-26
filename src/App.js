@@ -14,6 +14,7 @@ import Navbar from './components/navbar';
 import { appData } from './context/data';
 import { ThemeProvider } from 'styled-components';
 import { themes } from './themes/theme';
+import { SpotifyEmbed } from './components/spotifyEmbed';
 
 function App() {
   const [data, setData] = useState(appData);
@@ -38,6 +39,17 @@ function App() {
             </LengthWrapper>
             <Timer />
           </MainWrapper>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'flex-start',
+              marginTop: -20,
+              zIndex: 3,
+              position: 'relative',
+            }}
+          >
+            <SpotifyEmbed />
+          </div>
           <OverlayWrapper />
         </AppWrapper>
       </TimerContext.Provider>
