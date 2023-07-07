@@ -2,5 +2,40 @@
   "start": "Start",
   "pause": "Pause",
   "resume": "Resume",
-  "reset": "Reset"
+  "reset": "Reset", 
+  "Session": "Session", 
+  "Break": "Break", 
+  "sessionLength": "Session Length",
+  "breakLength": "Break Length", 
+  "settings": {
+    "themes": "Themes", 
+    "alarmSounds": "Alarm Sounds"
+  },
+  "info": {
+    "title": "Get Started with the Pomodoro Technique:",
+    "subheading1": "What is the Pomodoro Technique?",
+    "description1": "The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. It's a simple yet powerful technique that helps improve focus, productivity, and time management skills. The technique uses a timer to break work into focuses intervals, known as \"Pomodoros,\" followed by short breaks.",
+    "subheading2": "How to use the Pomodoro Technique:",
+    "howToUseHeading1": "Set a Goal:",
+    "howToUseDetail1": " Identify the task or project you want to work on and set a clear goal for what you want to achieve during your Pomodoro sessions.",
+    "howToUseHeading2": "Set the Timer:",
+    "howToUseDetail2": " Start the Pomodoro timer for a fixed duration, typically 25 minutes. This is known as one Pomodoro session.",
+    "howToUseHeading3": "Focus on the Task:",
+    "howToUseDetail3": " During the Pomodoro session, fully concentrate on your work. Minimize distractions and immerse yourself in the task at hand.",
+    "howToUseHeading4": "Avoid Interruptions:",
+    "howToUseDetail4": " Try to avoid interruptions or multitasking during the Pomodoro session. If any new tasks or ideas come up, jot them down and address them later.",
+    "howToUseHeading5": "Take a Short Break:",
+    "howToUseDetail5": " Once the Pomodoro timer rings, take a short break of around 5 minutes. Use this time to relax, stretch, or do something enjoyable to recharge.",
+    "howToUseHeading6": "Repeat the Cycle:",
+    "howToUseDetail6": " After the break, start a new Pomodoro session and repeat the process. Every four Pomodoros, take a longer break of about 15-30 minutes to rejuvenate.",
+    "benefitHeading1": "Enhanced Focus:",
+    "benefitDetail1": " By working in focused bursts, the Pomodoro Technique helps improve concentration and reduces distractions, allowing you to accomplish more.",
+    "benefitHeading2": "Increased Productivity:",
+    "benefitDetail2": " Breaking your work into manageable intervals promotes productivity and helps overcome procrastination.",
+    "benefitHeading3": "Time Management:",
+    "benefitDetail3": " The Pomodoro Technique assists in estimating and allocating time for tasks more accurately, enabling better time management.",
+    "benefitHeading4": "Work-Life Balance:",
+    "benefitDetail4": " Regular breaks prevent burnout and provide opportunities to relax and maintain a healthy work-life balance.",
+    "subheading3": "Benefits of the Pomodoro Technique:"
+  }
 }

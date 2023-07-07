@@ -1,78 +1,77 @@
 import React from 'react';
+import { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
+import TimerContext from '../timer-context';
 import Modal from './modal';
 
 export const Info = ({ isOpen, closeModal }) => {
+  const { t } = useTranslation();
+  const { data } = useContext(TimerContext);
+  const { isRtl } = data; 
+ 
+
   return (
     <Modal isOpen={isOpen} onClose={closeModal}>
       <section class="info-section">
-        <h2>Get Started with the Pomodoro Technique:</h2>
+        <h2>{t('info.title')}</h2>
 
-        <h3>What is the Pomodoro Technique?</h3>
-        <p>
-          The Pomodoro Technique is a time management method developed by
-          Francesco Cirillo in the late 1980s. It's a simple yet powerful
-          technique that helps improve focus, productivity, and time management
-          skills. The technique uses a timer to break work into focused
-          intervals, known as "Pomodoros," followed by short breaks. This
-          section will guide you on how to make the most of the Pomodoro
-          Technique.
-        </p>
+        <h3>{t('info.subheading1')}</h3>
+        <p>{t('info.description1')}</p>
 
-        <h3>How to use the Pomodoro Technique:</h3>
-        <ol>
+        <h3>{t('info.subheading2')}</h3>
+        <ol
+          style={{
+            textAlign: isRtl ? 'right' : 'left',
+            direction: isRtl ? 'rtl' : 'ltr',
+          }}
+        >
           <li>
-            <strong>Set a Goal:</strong> Identify the task or project you want
-            to work on and set a clear goal for what you want to achieve during
-            your Pomodoro sessions.
+            <strong>{t('info.howToUseHeading1')}</strong>
+            {t('info.howToUseDetail1')}
           </li>
           <li>
-            <strong>Set the Timer:</strong> Start the Pomodoro timer for a fixed
-            duration, typically 25 minutes. This is known as one Pomodoro
-            session.
+            <strong>{t('info.howToUseHeading2')}</strong>
+            {t('info.howToUseDetail2')}
           </li>
           <li>
-            <strong>Focus on the Task:</strong> During the Pomodoro session,
-            fully concentrate on your work. Minimize distractions and immerse
-            yourself in the task at hand.
+            <strong>{t('info.howToUseHeading3')}</strong>
+            {t('info.howToUseDetail3')}
           </li>
           <li>
-            <strong>Avoid Interruptions:</strong> Try to avoid interruptions or
-            multitasking during the Pomodoro session. If any new tasks or ideas
-            come up, jot them down and address them later.
+            <strong>{t('info.howToUseHeading4')}</strong>
+            {t('info.howToUseDetail4')}
           </li>
           <li>
-            <strong>Take a Short Break:</strong> Once the Pomodoro timer rings,
-            take a short break of around 5 minutes. Use this time to relax,
-            stretch, or do something enjoyable to recharge.
+            <strong>{t('info.howToUseHeading5')}</strong>
+            {t('info.howToUseDetail5')}
           </li>
           <li>
-            <strong>Repeat the Cycle:</strong> After the break, start a new
-            Pomodoro session and repeat the process. Every four Pomodoros, take
-            a longer break of about 15-30 minutes to rejuvenate.
+            <strong>{t('info.howToUseHeading6')}</strong>
+            {t('info.howToUseDetail6')}
           </li>
         </ol>
-
-        <h3>Benefits of the Pomodoro Technique:</h3>
-        <ul>
+        <h3>{t('info.subheading3')}</h3>
+        <ul
+          style={{
+            textAlign: isRtl ? 'right' : 'left',
+            direction: isRtl ? 'rtl' : 'ltr',
+          }}
+        >
           <li>
-            <strong>Enhanced Focus:</strong> By working in focused bursts, the
-            Pomodoro Technique helps improve concentration and reduces
-            distractions, allowing you to accomplish more.
+            <strong>{t('info.benefitHeading1')}</strong>
+            {t('info.benefitDetail1')}
           </li>
           <li>
-            <strong>Increased Productivity:</strong> Breaking your work into
-            manageable intervals promotes productivity and helps overcome
-            procrastination.
+            <strong>{t('info.benefitHeading2')}</strong>
+            {t('info.benefitDetail2')}
           </li>
           <li>
-            <strong>Time Management:</strong> The Pomodoro Technique assists in
-            estimating and allocating time for tasks more accurately, enabling
-            better time management.
+            <strong>{t('info.benefitHeading3')}</strong>
+            {t('info.benefitDetail3')}
           </li>
           <li>
-            <strong>Work-Life Balance:</strong> Regular breaks prevent burnout
-            and provide opportunities to relax and maintain a healthy work-life
-            balance.
+            <strong>{t('info.benefitHeading4')}</strong>
+            {t('info.benefitDetail4')}
           </li>
         </ul>
       </section>

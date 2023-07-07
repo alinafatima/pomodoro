@@ -11,4 +11,6 @@ export const appData = {
   },
   isRunning: false,
   currentTheme: THEME_OPTIONS[6],
+  currentLanguage: "en", 
+  isRtl: false,
 };

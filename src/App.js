@@ -13,10 +13,13 @@ import TimerContext from './timer-context';
 import Navbar from './components/navbar';
 import { appData } from './context/data';
 import { ThemeProvider } from 'styled-components';
+import { useTranslation } from 'react-i18next';
 import { themes } from './themes/theme';
 import { SpotifyEmbed } from './components/spotifyEmbed';
 
 function App() {
+  
+  const { t } = useTranslation();
   const [data, setData] = useState(appData);
   const backgroundImage = themes.find(
     (theme) => theme.id === data.currentTheme.value
@@ -34,8 +37,8 @@ function App() {
           <Navbar />
           <MainWrapper>
             <LengthWrapper>
-              <LengthControl title="Session Length" type="session" />
-              <LengthControl title="Break Length" type="break" />
+              <LengthControl title={t('sessionLength')} type="session" />
+              <LengthControl title={t('breakLength')} type="break" />
             </LengthWrapper>
             <Timer />
           </MainWrapper>

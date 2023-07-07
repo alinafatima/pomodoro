@@ -35,7 +35,6 @@ export const Timer = () => {
   );
 
     useEffect(()=>{
-      console.log(data, "herrrreee");
       setSession(data?.session);
       setBreakTime(data?.break);
     },[data])
@@ -137,7 +136,7 @@ export const Timer = () => {
     <TimerWrapper>
       <ProgressCircle className="animate" p={progress}>
         <CountdownWrapper>
-          <TimerLabelWrapper>{TIMER_TYPES[timerType].label}</TimerLabelWrapper>
+          <TimerLabelWrapper>{t(TIMER_TYPES[timerType].label)}</TimerLabelWrapper>
           <DigitsWrapper>
             {formatMinutes(minutes)}:{formatSeconds(seconds)}
           </DigitsWrapper>
