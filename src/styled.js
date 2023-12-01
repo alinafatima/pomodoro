@@ -250,3 +250,66 @@ export const SectionWrapper = styled.section`
   text-align: left;
   margin: 3vh 1vw;
 `;
+
+
+export const TaskListWrapper = styled.div`
+`
+export const AddNewTaskItem = styled.input`
+
+`
+
+export const StyledTaskList= styled.ul`
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-right: 1vh;
+  padding-left: 1vh;
+ 
+`
+export const TaskListItem = styled.li`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; 
+  margin-top: 2vh;
+  border: 2px solid rgba(0, 0, 0);
+  height: fit-content; 
+`
+export const TaskListTextAndCheckBoxWrapper = styled.div`
+  display: flex;
+  padding: 0; 
+  justify-content: flex-start;
+`;
+
+export const TaskListCheckBoxWrapper = styled.div`
+  display: flex;
+  padding: 0; 
+  align-items: center;
+  margin-left: -1.5vw;
+`;
+
+export const TaskListTextWrapper = styled.div`
+  width: 11vw;
+  height: fit-content;
+  overflow-wrap: break-word;
+`;
+export const DeleteIcon = styled(FontAwesomeIcon)`
+  transition: color 0.3s;
+  width: 5vw; 
+  height: 2.5vh;
+  padding: 0; 
+  &:hover {
+    color: ${(props) => props.theme.secondary};
+  }
+`;
+
+export const DeleteIconWrapper = styled.div`
+  display: flex;
+  padding: 0; 
+  justify-content: flex-end;
+`;
+
+export const TaskListCheckBox = styled.input`
+  width: 6vw; 
+  height: 3vh;
+`;

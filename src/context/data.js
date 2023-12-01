@@ -1,4 +1,4 @@
-import { THEME_OPTIONS } from '../constants';
+import { ALARM_SOUND_OPTIONS, THEME_OPTIONS } from '../constants';
 
 export const appData = {
   session: {
@@ -13,4 +13,5 @@ export const appData = {
   currentTheme: THEME_OPTIONS[6],
   currentLanguage: "en", 
   isRtl: false,
+  currentAlarm: ALARM_SOUND_OPTIONS[0]
 };

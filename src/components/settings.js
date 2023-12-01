@@ -16,7 +16,7 @@ export const Settings = ({ isOpen, closeModal }) => {
       </SectionWrapper>
       <SectionWrapper style={{ textAlign: 'left' }}>
         <h3>{t('settings.alarmSounds')}</h3>
-        <Select options={ALARM_SOUND_OPTIONS} />
+        <Select options={ALARM_SOUND_OPTIONS}  field={'currentAlarm'} />
       </SectionWrapper>
     </Modal>
   );

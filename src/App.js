@@ -15,7 +15,7 @@ import { appData } from './context/data';
 import { ThemeProvider } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import { themes } from './themes/theme';
-import { SpotifyEmbed } from './components/spotifyEmbed';
+import { TaskList } from './components/task-list';
 
 function App() {
   
@@ -42,18 +42,10 @@ function App() {
             </LengthWrapper>
             <Timer />
           </MainWrapper>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'flex-start',
-              marginTop: -20,
-              zIndex: 3,
-              position: 'relative',
-            }}
-          >
-            <SpotifyEmbed />
-          </div>
           <OverlayWrapper />
+          {/* <Drawer>
+            <TaskList/>
+          </Drawer> */}
         </AppWrapper>
       </TimerContext.Provider>
     </ThemeProvider>

@@ -37,5 +37,9 @@
     "benefitHeading4": "Work-Life Balance:",
     "benefitDetail4": " Regular breaks prevent burnout and provide opportunities to relax and maintain a healthy work-life balance.",
     "subheading3": "Benefits of the Pomodoro Technique:"
+  },
+  "todolist": {
+    "title": "To-do list",
+    "addANewTask": "Add a new task"
   }
 }

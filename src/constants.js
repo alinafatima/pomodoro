@@ -1,3 +1,6 @@
+import Rooster from './sounds/rooster.wav'; 
+import BattleShip from './sounds/battleship.wav'; 
+
 export const TIMER_TYPES = {
   session: {
     label: 'Session',
@@ -44,11 +47,11 @@ export const THEME_OPTIONS = [
 
 export const ALARM_SOUND_OPTIONS = [
   {
-    value: 'alarm1',
-    label: 'Alarm 1',
+    value: Rooster,
+    label: 'Rooster',
   },
   {
-    value: 'alarm2',
-    label: 'Alarm 2',
+    value: BattleShip,
+    label: 'Battle Ship',
   },
 ];

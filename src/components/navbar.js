@@ -9,6 +9,7 @@ import {
   faGear,
   faCircleInfo,
 } from '@fortawesome/free-solid-svg-icons';
+import { SpotifyEmbed } from './spotifyEmbed';
 
 const Navbar = () => {
   const [openLanguageDropdown, setOpenLanguageDropdown] = useState(false);
@@ -24,6 +25,18 @@ const Navbar = () => {
 
   return (
     <NavBarWrapper>
+       <div
+            style={{
+              display: 'flex',
+              justifyContent: 'flex-start',
+              marginTop: 5,
+              marginLeft: 20,
+              zIndex: 3,
+              position: 'absolute',
+            }}
+          >
+            <SpotifyEmbed />
+          </div>
       <NavList>
         <NavListItem onClick={toggleInfoModal}>
           <HoverableFontAwesomeIcon

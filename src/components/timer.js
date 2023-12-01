@@ -30,9 +30,7 @@ export const Timer = () => {
   const [session, setSession] = useState({});
   const [breakTime,setBreakTime] = useState({});
 
-  const alarmSound = new Audio(
-    'https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav'
-  );
+  const alarmSound = new Audio(data?.currentAlarm?.value);
 
     useEffect(()=>{
       setSession(data?.session);
@@ -65,6 +63,11 @@ export const Timer = () => {
 
   const updateTimerType = () => {
     alarmSound.play();
+
+    setTimeout(() => {
+      alarmSound.pause();
+      alarmSound.currentTime = 0;
+    }, 4000); 
     if (timerType === 'session') {
       setTimerType('break');
       updateMinutesAndSeconds('break');
