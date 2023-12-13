@@ -1,13 +1,13 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import styled, { css } from 'styled-components';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styled, { css } from "styled-components";
 
 export const AppWrapper = styled.div`
   text-align: center;
   height: 100vh;
   background-color: ${(props) =>
-    props.backgroundImage ? 'transparent' : props.theme.primary};
+    props.backgroundImage ? "transparent" : props.theme.primary};
   background-image: ${(props) =>
-    props.backgroundImage ? `url(${props.backgroundImage})` : 'none'};
+    props.backgroundImage ? `url(${props.backgroundImage})` : "none"};
   position: absolute;
   top: 0;
   right: 0;
@@ -66,8 +66,8 @@ export const UpdateTimerLengthButton = styled.button`
 
 export const HoverableFontAwesomeIcon = styled(FontAwesomeIcon)`
   transition: color 0.3s;
-  width: 25px; 
-  height: 25px; 
+  width: 25px;
+  height: 25px;
 
   &:hover {
     color: ${(props) => props.theme.secondary};
@@ -102,7 +102,7 @@ export const TimerButton = styled.button`
 export const NavBarWrapper = styled.nav`
   position: relative;
   z-index: 3;
-  background-color: 'transparent';
+  background-color: "transparent";
   color: ${(props) => props.theme.quinary};
 `;
 
@@ -144,7 +144,7 @@ export const ModalWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 99;
+  z-index: 9999;
 `;
 
 export const ModalContentWrapper = styled.div`
@@ -152,9 +152,10 @@ export const ModalContentWrapper = styled.div`
   color: ${(props) => props.theme.senary};
   padding: 2vw;
   border-radius: 5px;
+  width: ${(props) => props.width ? props.width :'fit-content'};
   margin: 5vw;
   position: relative;
-  z-index: 5;
+  z-index: 99;
 `;
 
 export const CloseIconWrapper = styled.span`
@@ -206,7 +207,7 @@ export const ProgressCircle = styled.div`
 
   &::before,
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     border-radius: 50%;
   }
@@ -251,39 +252,34 @@ export const SectionWrapper = styled.section`
   margin: 3vh 1vw;
 `;
 
+export const TaskListWrapper = styled.div``;
+export const AddNewTaskItem = styled.input``;
 
-export const TaskListWrapper = styled.div`
-`
-export const AddNewTaskItem = styled.input`
-
-`
-
-export const StyledTaskList= styled.ul`
+export const StyledTaskList = styled.ul`
   display: flex;
   flex-direction: column;
   text-align: left;
   margin-right: 1vh;
   padding-left: 1vh;
- 
-`
+`;
 export const TaskListItem = styled.li`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center; 
-  margin-top: 2vh;
+  align-items: center;
+  margin: 2vh 0vh;
   border: 2px solid rgba(0, 0, 0);
-  height: fit-content; 
-`
+  height: fit-content;
+`;
 export const TaskListTextAndCheckBoxWrapper = styled.div`
   display: flex;
-  padding: 0; 
+  padding: 0;
   justify-content: flex-start;
 `;
 
 export const TaskListCheckBoxWrapper = styled.div`
   display: flex;
-  padding: 0; 
+  padding: 0;
   align-items: center;
   margin-left: -1.5vw;
 `;
@@ -292,12 +288,13 @@ export const TaskListTextWrapper = styled.div`
   width: 11vw;
   height: fit-content;
   overflow-wrap: break-word;
+  text-decoration: ${(props) => (props.taskChecked ? "line-through;" : "none")};
 `;
 export const DeleteIcon = styled(FontAwesomeIcon)`
   transition: color 0.3s;
-  width: 5vw; 
+  width: 5vw;
   height: 2.5vh;
-  padding: 0; 
+  padding: 0;
   &:hover {
     color: ${(props) => props.theme.secondary};
   }
@@ -305,11 +302,11 @@ export const DeleteIcon = styled(FontAwesomeIcon)`
 
 export const DeleteIconWrapper = styled.div`
   display: flex;
-  padding: 0; 
+  padding: 0;
   justify-content: flex-end;
 `;
 
 export const TaskListCheckBox = styled.input`
-  width: 6vw; 
+  width: 6vw;
   height: 3vh;
 `;

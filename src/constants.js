@@ -55,3 +55,15 @@ export const ALARM_SOUND_OPTIONS = [
     label: 'Battle Ship',
   },
 ];
+
+export const LANGUAGE_OPTIONS = [
+  {
+    value: 'en',
+    label: 'English',
+  },
+  {
+    value: 'ur',
+    label: 'Urdu',
+  },
+];
+

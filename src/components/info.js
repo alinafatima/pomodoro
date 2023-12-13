@@ -2,7 +2,7 @@ import React from 'react';
 import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import TimerContext from '../timer-context';
-import Modal from './modal';
+import Modal from './ui-components/modal';
 
 export const Info = ({ isOpen, closeModal }) => {
   const { t } = useTranslation();
@@ -11,7 +11,7 @@ export const Info = ({ isOpen, closeModal }) => {
  
 
   return (
-    <Modal isOpen={isOpen} onClose={closeModal}>
+    <Modal isOpen={isOpen} onClose={closeModal} width={"50%"}>
       <section class="info-section">
         <h2>{t('info.title')}</h2>
 

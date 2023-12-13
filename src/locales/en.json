@@ -9,7 +9,8 @@
   "breakLength": "Break Length", 
   "settings": {
     "themes": "Themes", 
-    "alarmSounds": "Alarm Sounds"
+    "alarmSounds": "Alarm Sounds", 
+    "language": "Language"
   },
   "info": {
     "title": "Get Started with the Pomodoro Technique:",
