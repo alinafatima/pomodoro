@@ -27,7 +27,12 @@ export const AppWrapper = styled.div`
         `};
 `;
 
-export const MainWrapper = styled.div``;
+export const MainWrapper = styled.div`
+  display: flex;
+  flex: 4;
+  flex-direction: column;
+  margin-left: 14vw;
+`;
 
 export const LengthWrapper = styled.div`
   display: flex;
@@ -152,7 +157,7 @@ export const ModalContentWrapper = styled.div`
   color: ${(props) => props.theme.senary};
   padding: 2vw;
   border-radius: 5px;
-  width: ${(props) => props.width ? props.width :'fit-content'};
+  width: ${(props) => (props.width ? props.width : "fit-content")};
   margin: 5vw;
   position: relative;
   z-index: 99;
@@ -252,24 +257,70 @@ export const SectionWrapper = styled.section`
   margin: 3vh 1vw;
 `;
 
-export const TaskListWrapper = styled.div``;
-export const AddNewTaskItem = styled.input``;
+export const TaskListWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.5vh 1vw 0.5vh 2vw;
+`;
+export const AddNewTaskItem = styled.input`
+  background: none;
+  border: none;
+  outline: none;
+  color: #fff; /* White color text */
+  font-size: 16px;
+  width: 90%;
+  &::placeholder {
+    color: #bbb; /* Lighter color for placeholder */
+  }
+`;
+
+export const TaskInputContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333; /* Dark background */
+  padding: 10px;
+  width: 92%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+`;
 
 export const StyledTaskList = styled.ul`
   display: flex;
   flex-direction: column;
   text-align: left;
-  margin-right: 1vh;
-  padding-left: 1vh;
+  margin: 0;
+  padding-inline-start: 0;
 `;
+
+export const DeleteIcon = styled(FontAwesomeIcon)`
+  transition: color 0.3s;
+  width: 3vw;
+  height: 2vh;
+  padding: 0;
+`;
+
 export const TaskListItem = styled.li`
   display: flex;
+  background-color: #333;
+  color: white;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   margin: 2vh 0vh;
-  border: 2px solid rgba(0, 0, 0);
+  padding: 1vh 0vw;
   height: fit-content;
+
+  &:hover{
+    background-color: white;
+    color: #333;
+
+    ${DeleteIcon} {
+      color: #333;
+    }
+  }
 `;
 export const TaskListTextAndCheckBoxWrapper = styled.div`
   display: flex;
@@ -281,24 +332,15 @@ export const TaskListCheckBoxWrapper = styled.div`
   display: flex;
   padding: 0;
   align-items: center;
-  margin-left: -1.5vw;
 `;
 
 export const TaskListTextWrapper = styled.div`
-  width: 11vw;
+  width: 100%;
   height: fit-content;
   overflow-wrap: break-word;
   text-decoration: ${(props) => (props.taskChecked ? "line-through;" : "none")};
 `;
-export const DeleteIcon = styled(FontAwesomeIcon)`
-  transition: color 0.3s;
-  width: 5vw;
-  height: 2.5vh;
-  padding: 0;
-  &:hover {
-    color: ${(props) => props.theme.secondary};
-  }
-`;
+
 
 export const DeleteIconWrapper = styled.div`
   display: flex;
@@ -307,6 +349,6 @@ export const DeleteIconWrapper = styled.div`
 `;
 
 export const TaskListCheckBox = styled.input`
-  width: 6vw;
-  height: 3vh;
+  width: 3vw;
+  height: 2vh;
 `;

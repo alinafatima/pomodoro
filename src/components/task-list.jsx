@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { useTranslation } from "react-i18next";
 import {
@@ -11,6 +11,7 @@ import {
   TaskListTextAndCheckBoxWrapper,
   TaskListTextWrapper,
   TaskListCheckBoxWrapper,
+  TaskInputContainer,
 } from "./../styled";
 import { DeleteIcon } from "./../styled";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -19,24 +20,33 @@ export const TaskList = () => {
   const { t } = useTranslation();
   const [tasks, setTasks] = useState([]);
   const [taskText, setTaskText] = useState("");
-
-  useEffect(() => {
-    setTasks([
-      { id: 1, text: "Brush my teeth", completed: false },
-      {
-        id: 2, text: "Collaborate with Anza on debugging prod issue",
-        completed: false,
-      },
-      {
-       id: 3, text: "Complete reading on JavaScript",
-        completed: false,
-      },
-      {
-        id: 4, text: "Start developing the notes drawer",
-        completed: false,
-      },
-    ]);
-  }, []);
+  const today = new Date();
+  const weekdays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const dayName = weekdays[today.getDay()];
+  const monthName = months[today.getMonth()];
+  const formattedDate = dayName + ", " + monthName + " " + today.getDate();
 
   const reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list);
@@ -47,7 +57,10 @@ export const TaskList = () => {
 
   const addTask = () => {
     if (taskText.trim() !== "") {
-      setTasks([...tasks, {  id: `${tasks.length + 1}`,text: taskText, completed: false }]);
+      setTasks([
+        ...tasks,
+        { id: `${tasks.length + 1}`, text: taskText, completed: false },
+      ]);
       setTaskText("");
     }
   };
@@ -76,14 +89,50 @@ export const TaskList = () => {
 
   return (
     <TaskListWrapper>
-      <h1> {t("todolist.title")}</h1>
-      <AddNewTaskItem
-        type="text"
-        placeholder={t("todolist.addANewTask")}
-        value={taskText}
-        onChange={(e) => setTaskText(e.target.value)}
-      />
-      <button onClick={addTask}>Add</button>
+      <h1
+        style={{
+          color: "white",
+          textAlign: "left",
+        }}
+      >
+        {t("todolist.title")}
+      </h1>
+      <p
+        style={{
+          color: "white",
+          textAlign: "left",
+          marginTop: "-2vh",
+          fontWeight: "400",
+        }}
+      >
+        {formattedDate}
+      </p>
+      <div>
+        <TaskInputContainer>
+          <AddNewTaskItem
+            type="text"
+            placeholder={t("todolist.addANewTask")}
+            value={taskText}
+            onChange={(e) => setTaskText(e.target.value)}
+          />
+          <button
+          style={{
+            width: "20%",
+            justifySelf: "flex-end",
+            background: "none",
+            border: "none",
+            padding: 0,
+            margin: 0,
+            color: "#fff"
+          }}
+          onClick={addTask}
+        ><i  class="fa fa-plus fa-2x">
+          +
+        </i>
+        </button>
+        </TaskInputContainer>
+        
+      </div>
 
       <StyledTaskList>
         <DragDropContext onDragEnd={onDragEnd}>
@@ -91,30 +140,39 @@ export const TaskList = () => {
             {(provided) => (
               <div ref={provided.innerRef} {...provided.droppableProps}>
                 {tasks.map((task, index) => (
-                   <Draggable key={(task.id).toString()} draggableId={(task.id).toString()} index={index}>
-                   {(provided) => (
-                  <TaskListItem key={task.text}  
-                    ref={provided.innerRef}
-                       {...provided.draggableProps}
-                       {...provided.dragHandleProps}>
-                   <TaskListTextAndCheckBoxWrapper>
-                      <TaskListCheckBoxWrapper>
-                        <TaskListCheckBox
-                          type="checkbox"
-                          checked={task.completed}
-                          onChange={() => completeTask(index)}
-                        />
-                      </TaskListCheckBoxWrapper>
-                      <TaskListTextWrapper taskChecked ={task.completed}>{task.text}</TaskListTextWrapper>
-                    </TaskListTextAndCheckBoxWrapper>
-                    <DeleteIconWrapper>
-                      <DeleteIcon
-                        icon={faTrash}
-                        color={"black"}
-                        onClick={() => deleteTask(index)}
-                      />
-                    </DeleteIconWrapper>
-                  </TaskListItem>)}
+                  <Draggable
+                    key={task.id.toString()}
+                    draggableId={task.id.toString()}
+                    index={index}
+                  >
+                    {(provided) => (
+                      <TaskListItem
+                        key={task.text}
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                      >
+                        <TaskListTextAndCheckBoxWrapper>
+                          <TaskListCheckBoxWrapper>
+                            <TaskListCheckBox
+                              type="checkbox"
+                              checked={task.completed}
+                              onChange={() => completeTask(index)}
+                            />
+                          </TaskListCheckBoxWrapper>
+                          <TaskListTextWrapper taskChecked={task.completed}>
+                            {task.text}
+                          </TaskListTextWrapper>
+                        </TaskListTextAndCheckBoxWrapper>
+                        <DeleteIconWrapper>
+                          <DeleteIcon
+                            icon={faTrash}
+                            color={"white"}
+                            onClick={() => deleteTask(index)}
+                          />
+                        </DeleteIconWrapper>
+                      </TaskListItem>
+                    )}
                   </Draggable>
                 ))}
               </div>

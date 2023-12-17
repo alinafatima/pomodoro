@@ -10,7 +10,7 @@ export const appData = {
     seconds: 0,
   },
   isRunning: false,
-  currentTheme: THEME_OPTIONS[6],
+  currentTheme: THEME_OPTIONS[2],
   currentLanguage: "en", 
   isRtl: false,
   currentAlarm: ALARM_SOUND_OPTIONS[0]

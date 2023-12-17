@@ -17,7 +17,6 @@ export const DrawerOuterWrapper = styled.div`
   width: 40vh;
   height: 100%;
   z-index: 1000;
-  background-color: #fff;
   transition: right 0.3s;
 `
 

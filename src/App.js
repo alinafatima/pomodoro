@@ -15,7 +15,6 @@ import { ThemeProvider } from "styled-components";
 import { useTranslation } from "react-i18next";
 import { themes } from "./themes/theme";
 import { TaskList } from "./components/task-list";
-import { Drawer } from "./components/ui-components/drawer";
 import i18n from './i18n';
 
 function App() {
@@ -46,6 +45,10 @@ function App() {
       <TimerContext.Provider value={{ data, updateData }}>
         <AppWrapper backgroundImage={backgroundImage}>
           <Navbar />
+          <div style={{
+            display: 'flex',
+            flexDirection: 'row',
+          }}>
           <MainWrapper>
             <LengthWrapper>
               <LengthControl title={t("sessionLength")} type="session" />
@@ -53,10 +56,9 @@ function App() {
             </LengthWrapper>
             <Timer />
           </MainWrapper>
+          <TaskList />
+         </div>
           <OverlayWrapper />
-          <Drawer isOpen = {true} >
-            <TaskList />
-          </Drawer>
         </AppWrapper>
       </TimerContext.Provider>
     </ThemeProvider>

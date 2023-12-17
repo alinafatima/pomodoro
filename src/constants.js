@@ -13,27 +13,15 @@ export const TIMER_TYPES = {
 export const THEME_OPTIONS = [
   {
     value: 'theme1',
-    label: 'Theme 1',
+    label: 'Stars',
   },
   {
     value: 'theme2',
-    label: 'Theme 2',
-  },
-  {
-    value: 'theme3',
-    label: 'Theme 3',
-  },
-  {
-    value: 'theme4',
-    label: 'Theme 4',
+    label: 'Lotus',
   },
   {
     value: 'theme5',
     label: 'Sea',
-  },
-  {
-    value: 'theme6',
-    label: 'Sunset',
   },
   {
     value: 'theme7',
