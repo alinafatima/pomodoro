@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/pomodoro/static/css/main.aa6b3d66.css",
-    "main.js": "/pomodoro/static/js/main.f5d09bc1.js",
+    "main.js": "/pomodoro/static/js/main.480ec4f9.js",
     "static/js/787.b1af5461.chunk.js": "/pomodoro/static/js/787.b1af5461.chunk.js",
     "static/media/battleship.wav": "/pomodoro/static/media/battleship.5cf431130fcb420a7fe9.wav",
     "static/media/rooster.wav": "/pomodoro/static/media/rooster.9f953334dc05c6f7f100.wav",
@@ -15,11 +15,11 @@
     "static/media/pic3.jpeg": "/pomodoro/static/media/pic3.2dcf9af45f66f8357fac.jpeg",
     "index.html": "/pomodoro/index.html",
     "main.aa6b3d66.css.map": "/pomodoro/static/css/main.aa6b3d66.css.map",
-    "main.f5d09bc1.js.map": "/pomodoro/static/js/main.f5d09bc1.js.map",
+    "main.480ec4f9.js.map": "/pomodoro/static/js/main.480ec4f9.js.map",
     "787.b1af5461.chunk.js.map": "/pomodoro/static/js/787.b1af5461.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.aa6b3d66.css",
-    "static/js/main.f5d09bc1.js"
+    "static/js/main.480ec4f9.js"
   ]
 }
