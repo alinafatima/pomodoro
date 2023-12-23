@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavBarWrapper, NavList, NavListItem } from '../styled';
+import { NavBarWrapper, NavList, NavListItem, SpotifyWrapper } from '../styled';
 import { Info } from './info';
 import { Settings } from './settings';
 import { HoverableFontAwesomeIcon } from './../styled';
@@ -18,18 +18,9 @@ const Navbar = () => {
 
   return (
     <NavBarWrapper>
-       <div
-            style={{
-              display: 'flex',
-              justifyContent: 'flex-start',
-              marginTop: 5,
-              marginLeft: 20,
-              zIndex: 3,
-              position: 'absolute',
-            }}
-          >
+       <SpotifyWrapper>
             <SpotifyEmbed />
-          </div>
+        </SpotifyWrapper>
       <NavList>
         <NavListItem onClick={toggleInfoModal}>
           <HoverableFontAwesomeIcon

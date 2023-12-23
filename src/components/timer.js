@@ -8,6 +8,7 @@ import {
   TimerButton,
   TimerLabelWrapper,
   TimerWrapper,
+  TimerButtonContainer,
 } from './../styled';
 import TimerContext from './../timer-context';
 
@@ -145,13 +146,13 @@ export const Timer = () => {
           </DigitsWrapper>
         </CountdownWrapper>
       </ProgressCircle>
-      <div>
+      <TimerButtonContainer>
         <TimerButton onClick={onStart}>{t('start')}</TimerButton>
         <TimerButton onClick={onPauseOrResume}>
           {isStartButtonPressed && !isRunning ? t('resume') : t('pause')}
         </TimerButton>
         <TimerButton onClick={onReset}> {t('reset')}</TimerButton>
-      </div>
+      </TimerButtonContainer>
     </TimerWrapper>
   );
 };

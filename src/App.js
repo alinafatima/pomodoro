@@ -7,6 +7,7 @@ import {
   LengthWrapper,
   MainWrapper,
   OverlayWrapper,
+  MainContainer,
 } from "./styled";
 import TimerContext from "./timer-context";
 import Navbar from "./components/navbar";
@@ -15,21 +16,19 @@ import { ThemeProvider } from "styled-components";
 import { useTranslation } from "react-i18next";
 import { themes } from "./themes/theme";
 import { TaskList } from "./components/task-list";
-import i18n from './i18n';
+import i18n from "./i18n";
 
 function App() {
   const { t } = useTranslation();
   const [data, setData] = useState(appData);
-  const language = data.currentLanguage?.value; 
- 
+  const language = data.currentLanguage?.value;
 
-   useEffect(()=>{
+  useEffect(() => {
     i18n.changeLanguage(language);
     const newData = { ...data };
-    newData['isRtl'] = language === 'ur';
+    newData["isRtl"] = language === "ur";
     updateData(newData);
-   },[language])
-
+  }, [language]);
 
   const backgroundImage = themes.find(
     (theme) => theme.id === data.currentTheme.value
@@ -44,22 +43,19 @@ function App() {
     >
       <TimerContext.Provider value={{ data, updateData }}>
         <AppWrapper backgroundImage={backgroundImage}>
-          <Navbar />
-          <div style={{
-            display: 'flex',
-            flexDirection: 'row',
-          }}>
-          <MainWrapper>
-            <LengthWrapper>
-              <LengthControl title={t("sessionLength")} type="session" />
-              <LengthControl title={t("breakLength")} type="break" />
-            </LengthWrapper>
-            <Timer />
-          </MainWrapper>
-          <TaskList />
-         </div>
+        <Navbar />
+          <MainContainer>
+            <MainWrapper>
+              <LengthWrapper>
+                <LengthControl title={t("sessionLength")} type="session" />
+                <LengthControl title={t("breakLength")} type="break" />
+              </LengthWrapper>
+              <Timer />
+            </MainWrapper>
+            <TaskList />
+          </MainContainer>
           <OverlayWrapper />
-        </AppWrapper>
+         </AppWrapper>
       </TimerContext.Provider>
     </ThemeProvider>
   );
