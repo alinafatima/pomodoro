@@ -1,9 +1,9 @@
-import React, { useContext, useState } from 'react';
-import TimerContext from './../../../timer-context';
-import { SelectWrapper, StyledSelect } from './styled';
+import React, { useContext, useState } from "react";
+import TimerContext from "./../../../timer-context";
+import { SelectWrapper, StyledSelect } from "./styled";
 
-const Select = ({ options, field }) => {
-  const [selectedOption, setSelectedOption] = useState('');
+const Select = ({ options, field, defaultOption }) => {
+  const [selectedOption, setSelectedOption] = useState(defaultOption);
   const { data, updateData } = useContext(TimerContext);
 
   const updateInContext = (value) => {
