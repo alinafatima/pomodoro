@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/pomodoro/static/css/main.f0e7b080.css",
-    "main.js": "/pomodoro/static/js/main.70433b78.js",
+    "main.css": "/pomodoro/static/css/main.1902d4c1.css",
+    "main.js": "/pomodoro/static/js/main.18502c3b.js",
     "static/js/787.b1af5461.chunk.js": "/pomodoro/static/js/787.b1af5461.chunk.js",
     "static/media/battleship.wav": "/pomodoro/static/media/battleship.5cf431130fcb420a7fe9.wav",
     "static/media/rooster.wav": "/pomodoro/static/media/rooster.9f953334dc05c6f7f100.wav",
@@ -11,12 +11,12 @@
     "static/media/pic5.jpeg": "/pomodoro/static/media/pic5.0e3fa015f51a6319eb40.jpeg",
     "static/media/pic7.jpeg": "/pomodoro/static/media/pic7.bc0a67972d0b11b38998.jpeg",
     "index.html": "/pomodoro/index.html",
-    "main.f0e7b080.css.map": "/pomodoro/static/css/main.f0e7b080.css.map",
-    "main.70433b78.js.map": "/pomodoro/static/js/main.70433b78.js.map",
+    "main.1902d4c1.css.map": "/pomodoro/static/css/main.1902d4c1.css.map",
+    "main.18502c3b.js.map": "/pomodoro/static/js/main.18502c3b.js.map",
     "787.b1af5461.chunk.js.map": "/pomodoro/static/js/787.b1af5461.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f0e7b080.css",
-    "static/js/main.70433b78.js"
+    "static/css/main.1902d4c1.css",
+    "static/js/main.18502c3b.js"
   ]
 }
