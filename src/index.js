@@ -5,6 +5,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { I18nextProvider } from 'react-i18next';
 import i18n from './i18n';
+import ReactGA from 'react-ga';
+
+ReactGA.initialize('G-K5GKPNM58N');
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

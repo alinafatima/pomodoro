@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { useTranslation } from "react-i18next";
 import {
@@ -15,10 +15,12 @@ import {
 } from "./../styled";
 import { DeleteIcon } from "./../styled";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import ReactGA from 'react-ga';
 
 export const TaskList = () => {
   const { t } = useTranslation();
-  const [tasks, setTasks] = useState([]);
+  const savedTasks = localStorage.getItem('tasks');
+  const [tasks, setTasks] = useState(savedTasks?.length > 0 ? JSON.parse(savedTasks) : []);
   const [taskText, setTaskText] = useState("");
   const today = new Date();
   const weekdays = [
@@ -63,11 +65,20 @@ export const TaskList = () => {
       ]);
       setTaskText("");
     }
+
+    ReactGA.event({
+      category: 'Button Click',
+      action: 'Clicked',
+      label: 'Task is added.'
+    });
   };
 
   const completeTask = (index) => {
     const updatedTasks = [...tasks];
-    updatedTasks[index].completed = !updatedTasks[index].completed;
+    const taskToBeUpdated = updatedTasks[index]; 
+    taskToBeUpdated.completed = !taskToBeUpdated.completed;
+    updatedTasks.splice(index, 1);
+    updatedTasks.push(taskToBeUpdated);
     setTasks(updatedTasks);
   };
 
@@ -85,6 +96,15 @@ export const TaskList = () => {
     const items = reorder(tasks, result.source.index, result.destination.index);
 
     setTasks(items);
+  };
+
+  useEffect(() => { 
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  },[tasks]);
+
+  const resetTasks = () => {
+    setTasks([]);
+    localStorage.removeItem('tasks');
   };
 
   return (
@@ -114,6 +134,11 @@ export const TaskList = () => {
             placeholder={t("todolist.addANewTask")}
             value={taskText}
             onChange={(e) => setTaskText(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                addTask();
+              }
+            }}
           />
           <button
           style={{
@@ -180,6 +205,12 @@ export const TaskList = () => {
           </Droppable>
         </DragDropContext>
       </StyledTaskList>
+      { tasks?.length > 0 && (
+        <button 
+          onClick={resetTasks}>
+          Clear all
+        </button>
+      )}
     </TaskListWrapper>
   );
 };

@@ -106,7 +106,6 @@ export const Timer = () => {
     setIsRunning(true);
   };
   const onPauseOrResume = () => {
-    console.log(isStartButtonPressed && !isRunning);
     if (isStartButtonPressed && !isRunning) {
       setIsRunning(true);
     } else {
@@ -138,7 +137,7 @@ export const Timer = () => {
 
   return (
     <TimerWrapper>
-      <ProgressCircle className="animate" p={progress}>
+      <ProgressCircle  p={progress}>
         <CountdownWrapper>
           <TimerLabelWrapper>{t(TIMER_TYPES[timerType].label)}</TimerLabelWrapper>
           <DigitsWrapper>
